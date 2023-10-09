@@ -29,14 +29,20 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     if (data) return;
     getData();
-  });
-  
+  }) ;
+
+  const sortDate = Array.from(data?.events || []).sort((evtA, evtB) =>
+    new Date(evtA.date) < new Date(evtB.date) ? 1 : -1
+  );
+  const last = sortDate ? sortDate[0] : null;
+
   return (
     <DataContext.Provider
       // eslint-disable-next-line react/jsx-no-constructed-context-values
       value={{
         data,
         error,
+        last
       }}
     >
       {children}
