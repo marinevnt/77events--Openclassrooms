@@ -15,7 +15,6 @@ import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
   const {last} = useData()
-  console.log(last);
 
   return <>
     <header>
@@ -119,7 +118,7 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
-        <Modal Content={<ModalEvent event={last} />}>
+        {last && <Modal Content={<ModalEvent event={last} />}>
         {({ setIsOpened }) => (
           <EventCard
             imageSrc={last?.cover}
@@ -130,7 +129,7 @@ const Page = () => {
             onClick={() => setIsOpened(true)} // Ouvre la modale lors du clic
           />
         )}
-      </Modal>
+      </Modal>}
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
