@@ -15,6 +15,7 @@ import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
   const {last} = useData()
+  console.log({last});
 
   return <>
     <header>
@@ -115,7 +116,7 @@ const Page = () => {
         </Modal>
       </div>
     </main>
-    <footer className="row">
+    <footer className="row" data-testid="footer">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
         {last && <Modal Content={<ModalEvent event={last} />}>
