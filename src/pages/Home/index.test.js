@@ -81,7 +81,7 @@ describe("When a page is created", () => {
   it("a list of events is displayed", () => {
     render(<Home />);
 
-    const events = screen.getAllByTestId("people-card");
+    const events = screen.getAllByTestId("event-card");
     expect(events.length).toBeGreaterThan(0);
   })
   it("a list a people is displayed", () => {
